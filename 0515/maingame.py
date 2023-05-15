@@ -57,6 +57,7 @@ class WindowClass(QMainWindow, form_class):
         self.Status1_1_Class.setText("close")
 
     #캐릭터 방향키로 움직이기===============================================================================================
+    # 다른키를 눌러도 입력값을 받는 문제가 있음 => 어떻게 수정해야 하지?
     def keyPressEvent(self, event):
         rand_event = random.randrange(4)
         if event.key() == Qt.Key_A and self.label.x() > 0:
@@ -75,9 +76,9 @@ class WindowClass(QMainWindow, form_class):
         lab_y_ = self.label.pos().y()
 
         #랜덤 값에 따라 이동 / 적 만남 / 수호대 만남 / 아이템 획득
-        if rand_event == 1 and self.label.x() > 0 and self.label.x() < 1580 and self.label.y() > 0 and self.label.y() < 760:
+        if rand_event == 1 and self.label.x() > 0 and self.label.x() < 1580 and self.label.y() > 0 and self.label.y() < 760: #캐릭터 창 밖으로 넘어가지 못하게 하기
             self.Log_textEdit.append("1칸 이동하였습니다.")
-        elif rand_event == 2 and self.label.x() > 0 and self.label.x() < 1580 and self.label.y() > 0 and self.label.y() < 760:
+        elif rand_event == 2 and self.label.x() > 0 and self.label.x() < 1580 and self.label.y() > 0 and self.label.y() < 760: #캐릭터 창 밖으로 넘어가지 못하게 하기
             enemy_rand = random.randrange(4)
             if enemy_rand >= 3:
                 self.Log_textEdit.append("적을 만났습니다.") #전투 함수로 이동
@@ -141,7 +142,13 @@ class WindowClass(QMainWindow, form_class):
         ##### 장비창 버튼 클릭하면 각 캐릭터 콤보박스 이동 -> 강화석 있다면 +버튼 활성화 ->[ 장비가 노발 장비라면 하급 강화석 필요, 레어 장비라면 상급 강화석 필요. ]->(+)버튼 누르면 장비 업그레이드, 상태창에 정보 띄우기
         #### 회피 선택시 - 몇 프로의 확률로 회피 성공. -> 몬스터가 다 죽지 않았다면 -> 다음 캐릭터로 턴이동. 마지막 캐릭터일시 1번 캐릭터로 -> hpmp가 모두 없다면 전투 실패
 
-    # ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+    #def 승리함수(self, 이긴위치):
+        #승리했을 때 어떤 상황에 따라 어떤 보상을 줄 지 선택하기
+
+
+
+
+# ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
     # 게임 종료 이벤트
     # def closeEvent(self, event):
     #     reply = QMessageBox.question(self, 'EXIT', '정말 게임을 종료하시겠습니까?',
@@ -151,8 +158,7 @@ class WindowClass(QMainWindow, form_class):
     #     else:
     #         event.ignore()
 # └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-        # 여기에 시그널, 설정
-    #여기에 함수 설정
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

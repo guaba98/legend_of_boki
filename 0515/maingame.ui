@@ -251,7 +251,7 @@
                 <enum>QFrame::NoFrame</enum>
                </property>
                <property name="currentIndex">
-                <number>2</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="Page_Nomal_Field">
                 <layout class="QGridLayout" name="gridLayout">
@@ -2217,7 +2217,7 @@ background : rgb(255, 255, 255);
                       <rect>
                        <x>10</x>
                        <y>674</y>
-                       <width>150</width>
+                       <width>80</width>
                        <height>160</height>
                       </rect>
                      </property>
